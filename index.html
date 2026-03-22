@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+   ______                            __
+  / ____/___  ____ ___  ____  __  __/ /____  _____
+ / /   / __ \/ __ `__ \/ __ \/ / / / __/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
+\____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
+                    /_/
+        Created with Perplexity Computer
+        https://www.perplexity.ai/computer
+-->
+<!-- Perplexity Computer Attribution — SEO Meta Tags -->
+<meta name="generator" content="Perplexity Computer">
+<meta name="author" content="Perplexity Computer">
+<meta property="og:see_also" content="https://www.perplexity.ai/computer">
+<link rel="author" href="https://www.perplexity.ai/computer">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Psyche — Psychology Community & Blog</title>
+  <meta name="description" content="A community-driven psychology platform. Read expert articles, share your experiences, discuss research, and connect with others on topics from anxiety to neuroscience.">
+  <meta property="og:title" content="Psyche — Psychology Community & Blog">
+  <meta property="og:description" content="Where minds meet. Expert articles, community discussions, and real conversations about mental health and psychology.">
+  <meta property="og:type" content="website">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/profile.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="css/roles.css">
+  <link rel="stylesheet" href="css/composer.css">
+  <link rel="stylesheet" href="css/shop.css">
+  <link rel="stylesheet" href="css/ops.css">
+  <link rel="stylesheet" href="css/helpdesk.css">
+  <link rel="stylesheet" href="css/feed.css">
+
+  <!-- Favicon SVG -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%234a3fa5'/><text x='16' y='21' text-anchor='middle' font-size='16' fill='white' font-family='Georgia,serif' font-style='italic'>ψ</text></svg>">
+</head>
+<body>
+
+<!-- ============================================================
+     SITE HEADER
+     ============================================================ -->
+<header class="site-header" role="banner">
+  <div class="container">
+    <nav class="nav-inner" aria-label="Main navigation">
+
+      <!-- Logo -->
+      <a href="#" class="nav-logo" data-page="page-home" aria-label="Psyche home">
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <circle cx="16" cy="16" r="14" fill="var(--color-primary)" opacity="0.12"/>
+          <circle cx="16" cy="16" r="14" stroke="var(--color-primary)" stroke-width="1.5"/>
+          <text x="16" y="21.5" text-anchor="middle" font-size="17" fill="var(--color-primary)" font-family="Georgia,serif" font-style="italic">ψ</text>
+        </svg>
+        Psyche
+      </a>
+
+      <!-- Nav links -->
+      <ul class="nav-links" role="list">
+        <li><a href="#" data-page="page-home" class="active">Home</a></li>
+        <li><a href="#" data-page="page-forum">Discuss</a></li>
+        <li><a href="#" data-page="page-topics">Topics</a></li>
+        <li id="nav-profile-link" style="display:none"><a href="#" data-page="page-profile">Profile</a></li>
+      </ul>
+
+      <!-- Right side -->
+      <div class="nav-right">
+        <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme">
+          <!-- Filled by JS -->
+        </button>
+        <button class="btn-signin">Sign in</button>
+        <button class="btn-post">+ Write</button>
+        <button class="nav-mobile-toggle" aria-label="Open menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- Mobile Nav Drawer -->
+<div class="mobile-nav" role="dialog" aria-label="Mobile navigation">
+  <div class="mobile-nav-overlay"></div>
+  <div class="mobile-nav-drawer">
+    <button class="mobile-nav-close" aria-label="Close menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <ul class="mobile-nav-links" role="list">
+      <li><a href="#" data-page="page-home">🏠 Home</a></li>
+      <li><a href="#" data-page="page-forum">💬 Discuss</a></li>
+      <li><a href="#" data-page="page-topics">🧠 Topics</a></li>
+      <li id="mobile-nav-profile-link" style="display:none"><a href="#" data-page="page-profile">👤 Profile</a></li>
+    </ul>
+  </div>
+</div>
+
+<main id="main-content">
+
+<!-- ============================================================
+     PAGE: HOME
+     ============================================================ -->
+<div id="page-home" class="page">
+
+  <!-- Hero -->
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-eyebrow" aria-label="Community tagline">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+          Where Minds Meet
+        </div>
+        <h1 id="hero-heading">
+          Understand your mind.<br>
+          <em>Connect with others.</em>
+        </h1>
+        <p class="hero-description">
+          A community-driven psychology platform blending expert insight, lived experience, and open discussion. From research breakdowns to late-night journal entries — it all belongs here.
+        </p>
+        <form class="hero-search" role="search" aria-label="Search Psyche">
+          <input type="search" placeholder="Search topics, articles, discussions…" aria-label="Search">
+          <button type="submit" aria-label="Search">Explore</button>
+        </form>
+        <div class="hero-stats" aria-label="Community statistics">
+          <div class="hero-stat">
+            <span class="hero-stat-number">84k</span>
+            <span class="hero-stat-label">Members</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-number">12k</span>
+            <span class="hero-stat-label">Discussions</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-number">340</span>
+            <span class="hero-stat-label">Expert Contributors</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-number">48</span>
+            <span class="hero-stat-label">Topics</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Topic pills -->
+  <div class="container">
+    <div class="topic-pills" role="navigation" aria-label="Filter by topic">
+      <button class="topic-pill active">All</button>
+      <button class="topic-pill">Anxiety</button>
+      <button class="topic-pill">Depression</button>
+      <button class="topic-pill">Trauma &amp; PTSD</button>
+      <button class="topic-pill">Mindfulness</button>
+      <button class="topic-pill">CBT</button>
+      <button class="topic-pill">Relationships</button>
+      <button class="topic-pill">Neuroscience</button>
+      <button class="topic-pill">Self-Esteem</button>
+      <button class="topic-pill">Grief</button>
+    </div>
+  </div>
+
+  <!-- Main feed + sidebar -->
+  <div class="container">
+    <div class="main-layout">
+
+      <!-- Feed -->
+      <div class="feed-column">
+
+        <!-- Featured editorial grid -->
+        <div class="section-header">
+          <span class="section-title">Editor's Picks</span>
+          <a href="#" class="section-link" data-page="page-article">View all →</a>
+        </div>
+
+        <div class="editorial-grid fade-in" style="transition-delay:0.05s">
+
+          <!-- Feature story -->
+          <article class="editorial-card" data-go-article tabindex="0" role="button" aria-label="Read: The Science of Emotional Regulation">
+            <div class="editorial-card-image" style="background: linear-gradient(135deg, #0f4c81 0%, #1d6fa4 50%, #1a8fa6 100%); display:flex; align-items:center; justify-content:center;">
+              <svg width="80" height="80" viewBox="0 0 80 80" fill="none" opacity="0.35">
+                <circle cx="40" cy="40" r="36" stroke="white" stroke-width="2"/>
+                <path d="M40 12 C40 12 28 24 28 36 C28 44 34 50 40 50 C46 50 52 44 52 36 C52 24 40 12 40 12Z" fill="white"/>
+                <circle cx="40" cy="60" r="6" fill="white"/>
+              </svg>
+            </div>
+            <div class="editorial-card-body">
+              <div class="editorial-card-eyebrow">Research Spotlight</div>
+              <h2 class="editorial-card-title">The Science of Emotional Regulation: Why Some People Handle Stress Better</h2>
+              <p class="editorial-card-excerpt">New research reveals that emotional regulation isn't a fixed trait — it's a set of learnable skills rooted in prefrontal cortex activity and early attachment patterns. Here's what the evidence says.</p>
+              <div class="editorial-card-footer">
+                <div class="editorial-card-author">
+                  <div class="editorial-card-avatar">DR</div>
+                  <div>
+                    <div class="editorial-card-author-name">Dr. Rachel Osei</div>
+                  </div>
+                </div>
+                <span class="editorial-card-time">8 min read · Mar 20</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Smaller cards -->
+          <article class="editorial-card" data-go-article tabindex="0" role="button" aria-label="Read: Attachment Styles in Adult Relationships">
+            <div class="editorial-card-image" style="background: linear-gradient(135deg, #0f5c73 0%, #1d6fa4 100%); height:160px; display:flex; align-items:center; justify-content:center;">
+              <svg width="52" height="52" viewBox="0 0 52 52" fill="none" opacity="0.4"><path d="M26 46 C26 46 8 34 8 20 C8 12 14 6 20 6 C23 6 26 8 26 8 C26 8 29 6 32 6 C38 6 44 12 44 20 C44 34 26 46 26 46Z" fill="white"/></svg>
+            </div>
+            <div class="editorial-card-body">
+              <div class="editorial-card-eyebrow">Relationships</div>
+              <h2 class="editorial-card-title">Your Attachment Style Is Showing — And That's Okay</h2>
+              <p class="editorial-card-excerpt">Understanding anxious, avoidant, and secure attachment can transform how you approach every relationship in your life.</p>
+              <div class="editorial-card-footer">
+                <div class="editorial-card-author">
+                  <div class="editorial-card-avatar">JM</div>
+                  <div><div class="editorial-card-author-name">Jamie Morrow, LCSW</div></div>
+                </div>
+                <span class="editorial-card-time">5 min · Mar 19</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="editorial-card" data-go-article tabindex="0" role="button" aria-label="Read: Cognitive Distortions Guide">
+            <div class="editorial-card-image" style="background: linear-gradient(135deg, #92400e 0%, #c2410c 100%); height:160px; display:flex; align-items:center; justify-content:center;">
+              <svg width="52" height="52" viewBox="0 0 52 52" fill="none" opacity="0.4"><rect x="10" y="10" width="32" height="32" rx="6" stroke="white" stroke-width="3"/><line x1="26" y1="18" x2="26" y2="34" stroke="white" stroke-width="3"/><line x1="18" y1="26" x2="34" y2="26" stroke="white" stroke-width="3"/></svg>
+            </div>
+            <div class="editorial-card-body">
+              <div class="editorial-card-eyebrow">CBT Essentials</div>
+              <h2 class="editorial-card-title">14 Cognitive Distortions That Might Be Running Your Life</h2>
+              <p class="editorial-card-excerpt">From all-or-nothing thinking to catastrophizing — a practical guide to recognizing and reframing distorted thought patterns.</p>
+              <div class="editorial-card-footer">
+                <div class="editorial-card-author">
+                  <div class="editorial-card-avatar">AK</div>
+                  <div><div class="editorial-card-author-name">Dr. Amir Karimian</div></div>
+                </div>
+                <span class="editorial-card-time">6 min · Mar 17</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Community Discussion Feed -->
+        <div class="section-header fade-in" style="transition-delay:0.1s">
+          <span class="section-title">Community Discussions</span>
+          <a href="#" class="section-link" data-page="page-forum">See forum →</a>
+        </div>
+
+        <div class="post-feed" role="feed" aria-label="Community posts">
+
+          <!-- Post 1: Question -->
+          <article class="post-card fade-in" data-go-article style="transition-delay:0.12s">
+            <div class="post-card-top">
+              <div class="post-avatar">SL</div>
+              <div class="post-meta">
+                <div class="post-author-line">
+                  <span class="post-author-name">Sarah_L</span>
+                  <span class="post-dot">·</span>
+                  <span class="post-community-badge">r/Anxiety</span>
+                  <span class="post-dot">·</span>
+                  <span>2h ago</span>
+                </div>
+              </div>
+            </div>
+            <div class="post-body">
+              <h3 class="post-title">Does anyone else feel physically sick before social events, even ones you're looking forward to?</h3>
+              <p class="post-excerpt">I've been dealing with this for years — nausea, racing heart, the works. My therapist says it's anticipatory anxiety but I'm wondering if others experience the physical symptoms more than the mental ones and what's helped.</p>
+            </div>
+            <div class="post-tags">
+              <span class="post-tag post-tag--anxiety">Anxiety</span>
+              <span class="post-tag post-tag--question">Question</span>
+            </div>
+            <div class="post-actions">
+              <button class="post-action-btn post-action-btn--upvote" data-upvote aria-label="Upvote">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+                <span data-vote-count>247</span>
+              </button>
+              <button class="post-action-btn" aria-label="Comments">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                83 comments
+              </button>
+              <button class="post-action-btn" aria-label="Share">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                Share
+              </button>
+              <span class="post-action-spacer"></span>
+              <button class="post-action-btn" aria-label="Save">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                Save
+              </button>
+            </div>
+          </article>
+
+          <!-- Post 2: Discussion -->
+          <article class="post-card post-card--featured fade-in" data-go-article style="transition-delay:0.16s">
+            <div class="post-card-top">
+              <div class="post-avatar" style="background:var(--color-tag-depression);color:var(--color-tag-depression-text);">TK</div>
+              <div class="post-meta">
+                <div class="post-author-line">
+                  <span class="post-author-name">TherapistKai</span>
+                  <span class="post-dot">·</span>
+                  <span class="post-community-badge">r/TherapistAMA</span>
+                  <span class="post-dot">·</span>
+                  <span>4h ago</span>
+                </div>
+              </div>
+            </div>
+            <div class="post-body">
+              <h3 class="post-title">I'm a licensed therapist who specializes in trauma. Ask me anything about EMDR, somatic therapy, or the nervous system.</h3>
+              <p class="post-excerpt">Been doing this for 11 years, primarily with complex PTSD and developmental trauma. Happy to demystify things, answer questions about finding a therapist, or just talk about how therapy actually works.</p>
+            </div>
+            <div class="post-tags">
+              <span class="post-tag post-tag--trauma">Trauma</span>
+              <span class="post-tag post-tag--research">AMA</span>
+            </div>
+            <div class="post-actions">
+              <button class="post-action-btn post-action-btn--upvote" data-upvote aria-label="Upvote">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+                <span data-vote-count>1.4k</span>
+              </button>
+              <button class="post-action-btn" aria-label="Comments">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                412 comments
+              </button>
+              <button class="post-action-btn" aria-label="Share">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                Share
+              </button>
+            </div>
+          </article>
+
+          <!-- Post 3: Research -->
+          <article class="post-card fade-in" data-go-article style="transition-delay:0.2s">
+            <div class="post-card-top">
+              <div class="post-avatar" style="background:var(--color-tag-mindfulness);color:var(--color-tag-mindfulness-text);">NR</div>
+              <div class="post-meta">
+                <div class="post-author-line">
+                  <span class="post-author-name">neuro_reads</span>
+                  <span class="post-dot">·</span>
+                  <span class="post-community-badge">r/Neuroscience</span>
+                  <span class="post-dot">·</span>
+                  <span>6h ago</span>
+                </div>
+              </div>
+            </div>
+            <div class="post-body">
+              <h3 class="post-title">New study: 8 weeks of mindfulness meditation measurably shrinks the amygdala</h3>
+              <p class="post-excerpt">Published in NeuroImage this week. Researchers found significant reduction in amygdala gray matter density in participants who completed an MBSR program, correlated with reduced self-reported stress. Link to full paper in comments.</p>
+            </div>
+            <div class="post-tags">
+              <span class="post-tag post-tag--mindfulness">Mindfulness</span>
+              <span class="post-tag post-tag--research">Research</span>
+            </div>
+            <div class="post-actions">
+              <button class="post-action-btn post-action-btn--upvote" data-upvote aria-label="Upvote">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+                <span data-vote-count>892</span>
+              </button>
+              <button class="post-action-btn" aria-label="Comments">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                156 comments
+              </button>
+              <button class="post-action-btn" aria-label="Share">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                Share
+              </button>
+              <span class="post-action-spacer"></span>
+              <button class="post-action-btn">Save</button>
+            </div>
+          </article>
+
+          <!-- Post 4: Personal -->
+          <article class="post-card fade-in" data-go-article style="transition-delay:0.24s">
+            <div class="post-card-top">
+              <div class="post-avatar" style="background:#fce4ec;color:#c62828;">MW</div>
+              <div class="post-meta">
+                <div class="post-author-line">
+                  <span class="post-author-name">mwinter_healing</span>
+                  <span class="post-dot">·</span>
+                  <span class="post-community-badge">r/Depression</span>
+                  <span class="post-dot">·</span>
+                  <span>9h ago</span>
+                </div>
+              </div>
+            </div>
+            <div class="post-body">
+              <h3 class="post-title">3 years of therapy, and I finally understand why I keep pushing people away</h3>
+              <p class="post-excerpt">I know this might sound basic to some of you, but I had a breakthrough this week. My therapist helped me connect my dismissive behavior in relationships to what happened when I was 8. It felt like a light turning on.</p>
+            </div>
+            <div class="post-tags">
+              <span class="post-tag post-tag--depression">Depression</span>
+              <span class="post-tag post-tag--trauma">Trauma</span>
+            </div>
+            <div class="post-actions">
+              <button class="post-action-btn post-action-btn--upvote" data-upvote aria-label="Upvote">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+                <span data-vote-count>3.1k</span>
+              </button>
+              <button class="post-action-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                218 comments
+              </button>
+              <button class="post-action-btn">Share</button>
+              <span class="post-action-spacer"></span>
+              <button class="post-action-btn">Save</button>
+            </div>
+          </article>
+
+          <!-- Post 5: CBT tip -->
+          <article class="post-card fade-in" data-go-article style="transition-delay:0.28s">
+            <div class="post-card-top">
+              <div class="post-avatar" style="background:var(--color-tag-cbt);color:var(--color-tag-cbt-text);">CP</div>
+              <div class="post-meta">
+                <div class="post-author-line">
+                  <span class="post-author-name">cbt_practitioner</span>
+                  <span class="post-dot">·</span>
+                  <span class="post-community-badge">r/CBT</span>
+                  <span class="post-dot">·</span>
+                  <span>12h ago</span>
+                </div>
+              </div>
+            </div>
+            <div class="post-body">
+              <h3 class="post-title">The "5-4-3-2-1" grounding technique actually has a CBT explanation — here's what's happening in your brain</h3>
+              <p class="post-excerpt">Most people use it without knowing why it works. When you engage multiple senses, you're forcing your prefrontal cortex back online and interrupting the amygdala hijack. Here's the neuroscience behind grounding.</p>
+            </div>
+            <div class="post-tags">
+              <span class="post-tag post-tag--cbt">CBT</span>
+              <span class="post-tag post-tag--mindfulness">Mindfulness</span>
+            </div>
+            <div class="post-actions">
+              <button class="post-action-btn post-action-btn--upvote" data-upvote>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+                <span data-vote-count>567</span>
+              </button>
+              <button class="post-action-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                91 comments
+              </button>
+              <button class="post-action-btn">Share</button>
+            </div>
+          </article>
+
+        </div><!-- end post-feed -->
+      </div><!-- end feed-column -->
+
+      <!-- Sidebar -->
+      <aside class="sidebar" aria-label="Sidebar">
+
+        <!-- Insight card -->
+        <div class="insight-card fade-in" style="transition-delay:0.1s">
+          <div class="insight-label">Daily Insight</div>
+          <blockquote class="insight-quote">"Between stimulus and response there is a space. In that space is our power to choose our response."</blockquote>
+          <cite class="insight-attribution">— Viktor Frankl, Man's Search for Meaning</cite>
+        </div>
+
+        <!-- Trending -->
+        <div class="sidebar-card fade-in" style="transition-delay:0.15s">
+          <div class="sidebar-card-title">Trending Topics</div>
+          <ul class="trending-topic-list" role="list">
+            <li class="trending-topic-item" role="button" tabindex="0">
+              <span class="trending-rank">1</span>
+              <span class="trending-topic-name">Emotional Regulation</span>
+              <span class="trending-post-count">1.2k posts</span>
+            </li>
+            <li class="trending-topic-item" role="button" tabindex="0">
+              <span class="trending-rank">2</span>
+              <span class="trending-topic-name">Attachment Theory</span>
+              <span class="trending-post-count">894 posts</span>
+            </li>
+            <li class="trending-topic-item" role="button" tabindex="0">
+              <span class="trending-rank">3</span>
+              <span class="trending-topic-name">Therapy Experiences</span>
+              <span class="trending-post-count">761 posts</span>
+            </li>
+            <li class="trending-topic-item" role="button" tabindex="0">
+              <span class="trending-rank">4</span>
+              <span class="trending-topic-name">Mindfulness &amp; Stress</span>
+              <span class="trending-post-count">632 posts</span>
+            </li>
+            <li class="trending-topic-item" role="button" tabindex="0">
+              <span class="trending-rank">5</span>
+              <span class="trending-topic-name">Grief &amp; Loss</span>
+              <span class="trending-post-count">508 posts</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Communities -->
+        <div class="sidebar-card fade-in" style="transition-delay:0.2s">
+          <div class="sidebar-card-title">Communities to Join</div>
+          <ul class="community-list" role="list">
+            <li class="community-item">
+              <div class="community-icon" style="background:#e8f5e9;">🌱</div>
+              <div class="community-info">
+                <div class="community-name">r/MentalHealthJourney</div>
+                <div class="community-members">24.3k members</div>
+              </div>
+              <button class="community-join-btn">Join</button>
+            </li>
+            <li class="community-item">
+              <div class="community-icon" style="background:#ddeef8;">🧠</div>
+              <div class="community-info">
+                <div class="community-name">r/Neuroscience</div>
+                <div class="community-members">18.7k members</div>
+              </div>
+              <button class="community-join-btn">Join</button>
+            </li>
+            <li class="community-item">
+              <div class="community-icon" style="background:#fce4ec;">💙</div>
+              <div class="community-info">
+                <div class="community-name">r/TherapistAMA</div>
+                <div class="community-members">11.2k members</div>
+              </div>
+              <button class="community-join-btn">Join</button>
+            </li>
+            <li class="community-item">
+              <div class="community-icon" style="background:#fff3e0;">🔥</div>
+              <div class="community-info">
+                <div class="community-name">r/CBT</div>
+                <div class="community-members">9.8k members</div>
+              </div>
+              <button class="community-join-btn">Join</button>
+            </li>
+            <li class="community-item">
+              <div class="community-icon" style="background:#e0f2f1;">🍃</div>
+              <div class="community-info">
+                <div class="community-name">r/Mindfulness</div>
+                <div class="community-members">7.4k members</div>
+              </div>
+              <button class="community-join-btn">Join</button>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Crisis resources -->
+        <div class="sidebar-card fade-in" style="transition-delay:0.25s; border-color:color-mix(in oklab, var(--color-error) 25%, var(--color-border));">
+          <div class="sidebar-card-title" style="color:var(--color-error);">Crisis Resources</div>
+          <p style="font-size:var(--text-xs);color:var(--color-text-muted);line-height:1.65;margin-bottom:var(--space-3);">
+            If you're in distress, help is available 24/7.
+          </p>
+          <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--space-2);">
+            <li style="font-size:var(--text-xs);color:var(--color-text-muted);">🇺🇸 <strong>988 Suicide &amp; Crisis Lifeline</strong> — call or text 988</li>
+            <li style="font-size:var(--text-xs);color:var(--color-text-muted);">💬 <strong>Crisis Text Line</strong> — text HOME to 741741</li>
+            <li style="font-size:var(--text-xs);color:var(--color-text-muted);">🌍 <strong>International Association</strong> — <a href="https://www.iasp.info/resources/Crisis_Centres/" style="color:var(--color-primary);" target="_blank" rel="noopener">find a center</a></li>
+          </ul>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+
+</div><!-- end page-home -->
+
+
+<!-- ============================================================
+     PAGE: FORUM / DISCUSS
+     ============================================================ -->
+<div id="page-forum" class="page">
+  <div class="container">
+    <div class="forum-header">
+      <h1 class="forum-title">Discuss</h1>
+      <p class="forum-desc">Join the conversation — share your story, ask questions, and connect with the community.</p>
+    </div>
+
+    <!-- Sort bar -->
+    <div class="forum-sort-bar">
+      <span class="forum-sort-label">Sort:</span>
+      <button class="sort-btn active">Hot</button>
+      <button class="sort-btn">New</button>
+      <button class="sort-btn">Top</button>
+      <button class="sort-btn">Rising</button>
+    </div>
+
+    <div class="main-layout">
+      <div>
+        <!-- Compose box -->
+        <div class="comment-compose" style="margin-bottom:var(--space-6);">
+          <div class="compose-avatar">Y</div>
+          <div class="compose-input-area">
+            <textarea class="compose-input" placeholder="Share your thoughts, experiences, or questions with the community…" rows="3"></textarea>
+            <div class="compose-footer" style="justify-content:space-between;align-items:center;">
+              <div style="display:flex;gap:var(--space-2);">
+                <button class="sort-btn" style="border-color:var(--color-border);">📎 Image</button>
+                <button class="sort-btn" style="border-color:var(--color-border);">🔖 Tag</button>
+              </div>
+              <button class="compose-submit">Post</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="post-feed">
+
+          <article class="post-card post-card--featured fade-in">
+            <div class="post-card-top">
+              <div class="post-avatar" style="background:var(--color-primary-highlight);color:var(--color-primary);">TK</div>
+              <div class="post-meta">
+                <div class="post-author-line">
+                  <span class="post-author-name">TherapistKai</span>
+                  <span class="post-dot">·</span>
+                  <span class="post-community-badge">r/TherapistAMA</span>
+                  <span class="post-dot">·</span>
+                  <span>4h ago</span>
+                </div>
+              </div>
+            </div>
+            <div class="post-body">
+              <h2 class="post-title">I'm a licensed therapist specializing in trauma. AMA about EMDR, somatic therapy, or the nervous system.</h2>
+              <p class="post-excerpt">11 years working with complex PTSD and developmental trauma. Happy to demystify how therapy works, answer questions about finding a therapist, or talk about the nervous system's role in healing.</p>
+            </div>
+            <div class="post-tags">
+              <span class="post-tag post-tag--trauma">Trauma</span>
+              <span class="post-tag post-tag--research">AMA</span>
+            </div>
+            <div class="post-actions">
+              <button class="post-action-btn post-action-btn--upvote" data-upvote><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg><span data-vote-count>1.4k</span></button>
+              <button class="post-action-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 412 comments</button>
+              <button class="post-action-btn">Share</button>
+            </div>
+          </article>
+
+          <article class="post-card fade-in" style="transition-delay:0.06s">
+            <div class="post-card-top">
+              <div class="post-avatar" style="background:#e8f5e9;color:#2e7d32;">OG</div>
+              <div class="post-meta">
+                <div class="post-author-line"><span class="post-author-name">Oliver_G</span><span class="post-dot">·</span><span class="post-community-badge">r/Relationships</span><span class="post-dot">·</span><span>7h ago</span></div>
+              </div>
+            </div>
+            <div class="post-body">
+              <h2 class="post-title">Finally told my partner about my depression. Here's what happened.</h2>
+              <p class="post-excerpt">I've been hiding it for 3 years. Last night I just … told him. All of it. He cried. I cried. We stayed up until 3am and I genuinely feel lighter than I have in years. Sharing in case it helps anyone else who's scared.</p>
+            </div>
+            <div class="post-tags"><span class="post-tag post-tag--depression">Depression</span></div>
+            <div class="post-actions">
+              <button class="post-action-btn post-action-btn--upvote" data-upvote><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg><span data-vote-count>2.8k</span></button>
+              <button class="post-action-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 334 comments</button>
+              <button class="post-action-btn">Share</button>
+            </div>
+          </article>
+
+          <article class="post-card fade-in" style="transition-delay:0.12s">
+            <div class="post-card-top">
+              <div class="post-avatar" style="background:#ddeef8;color:#3949ab;">RM</div>
+              <div class="post-meta">
+                <div class="post-author-line"><span class="post-author-name">research_mind</span><span class="post-dot">·</span><span class="post-community-badge">r/Neuroscience</span><span class="post-dot">·</span><span>10h ago</span></div>
+              </div>
+            </div>
+            <div class="post-body">
+              <h2 class="post-title">What's the actual difference between a psychologist, psychiatrist, therapist, and counselor?</h2>
+              <p class="post-excerpt">I've been confused about this for ages and I finally made a proper comparison table. Posting it here because I bet a lot of people find this confusing too.</p>
+            </div>
+            <div class="post-tags"><span class="post-tag post-tag--research">Research</span><span class="post-tag post-tag--question">Guide</span></div>
+            <div class="post-actions">
+              <button class="post-action-btn post-action-btn--upvote" data-upvote><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg><span data-vote-count>4.2k</span></button>
+              <button class="post-action-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 189 comments</button>
+              <button class="post-action-btn">Share</button>
+            </div>
+          </article>
+
+          <article class="post-card fade-in" style="transition-delay:0.18s">
+            <div class="post-card-top">
+              <div class="post-avatar" style="background:#e0f2f1;color:#00695c;">ZP</div>
+              <div class="post-meta">
+                <div class="post-author-line"><span class="post-author-name">z_park</span><span class="post-dot">·</span><span class="post-community-badge">r/Mindfulness</span><span class="post-dot">·</span><span>14h ago</span></div>
+              </div>
+            </div>
+            <div class="post-body">
+              <h2 class="post-title">30 days of daily meditation — honest results from a skeptic</h2>
+              <p class="post-excerpt">I went in 100% skeptical. A data-obsessed person tracking sleep, HRV, and mood daily. Here are my actual numbers and what surprised me most. Spoiler: my sleep didn't improve but my emotional reactivity changed noticeably.</p>
+            </div>
+            <div class="post-tags"><span class="post-tag post-tag--mindfulness">Mindfulness</span><span class="post-tag post-tag--research">Self-experiment</span></div>
+            <div class="post-actions">
+              <button class="post-action-btn post-action-btn--upvote" data-upvote><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg><span data-vote-count>1.9k</span></button>
+              <button class="post-action-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 267 comments</button>
+              <button class="post-action-btn">Share</button>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- Forum sidebar -->
+      <aside class="sidebar">
+        <div class="insight-card">
+          <div class="insight-label">Community Guidelines</div>
+          <p style="font-size:var(--text-xs);color:var(--color-text-muted);line-height:1.7;margin-bottom:var(--space-3);">
+            This is a supportive space. Be kind, cite sources for clinical claims, and never give or take advice as a substitute for professional care.
+          </p>
+          <button class="community-join-btn" style="width:100%;justify-content:center;padding:var(--space-2) 0;">Read full guidelines</button>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-card-title">Active Communities</div>
+          <ul class="trending-topic-list">
+            <li class="trending-topic-item"><span class="trending-rank">🌱</span><span class="trending-topic-name">r/MentalHealthJourney</span><span class="trending-post-count">24.3k</span></li>
+            <li class="trending-topic-item"><span class="trending-rank">🧠</span><span class="trending-topic-name">r/Neuroscience</span><span class="trending-post-count">18.7k</span></li>
+            <li class="trending-topic-item"><span class="trending-rank">💙</span><span class="trending-topic-name">r/TherapistAMA</span><span class="trending-post-count">11.2k</span></li>
+            <li class="trending-topic-item"><span class="trending-rank">🔥</span><span class="trending-topic-name">r/CBT</span><span class="trending-post-count">9.8k</span></li>
+            <li class="trending-topic-item"><span class="trending-rank">🍃</span><span class="trending-topic-name">r/Mindfulness</span><span class="trending-post-count">7.4k</span></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div><!-- end page-forum -->
+
+
+<!-- ============================================================
+     PAGE: TOPICS
+     ============================================================ -->
+<div id="page-topics" class="page">
+  <div class="container">
+    <div style="padding-block: var(--space-10) var(--space-6); max-width: 680px;">
+      <h1 style="font-family:var(--font-display);font-size:var(--text-2xl);font-style:italic;color:var(--color-text);margin-bottom:var(--space-3);">Explore Topics</h1>
+      <p style="font-size:var(--text-base);color:var(--color-text-muted);">Browse every corner of the psychology landscape — from clinical research to lived experience.</p>
+    </div>
+
+    <div class="topics-grid">
+
+      <div class="topic-card fade-in" style="transition-delay:0.05s">
+        <div class="topic-card-icon" style="background:#ddeef8;">🧠</div>
+        <h2 class="topic-card-name">Anxiety & Worry</h2>
+        <p class="topic-card-desc">Generalized anxiety, panic disorder, social anxiety, phobias, and the science of worry. Practical tools and shared experiences.</p>
+        <div class="topic-card-stats">
+          <span class="topic-card-stat"><strong>8.4k</strong> posts</span>
+          <span class="topic-card-stat"><strong>12.1k</strong> members</span>
+        </div>
+      </div>
+
+      <div class="topic-card fade-in" style="transition-delay:0.08s">
+        <div class="topic-card-icon" style="background:#fce4ec;">💙</div>
+        <h2 class="topic-card-name">Depression</h2>
+        <p class="topic-card-desc">Major depression, dysthymia, seasonal affective disorder. Honest stories, treatment options, and paths to recovery.</p>
+        <div class="topic-card-stats">
+          <span class="topic-card-stat"><strong>11.2k</strong> posts</span>
+          <span class="topic-card-stat"><strong>18.4k</strong> members</span>
+        </div>
+      </div>
+
+      <div class="topic-card fade-in" style="transition-delay:0.11s">
+        <div class="topic-card-icon" style="background:#fff8e1;">⚡</div>
+        <h2 class="topic-card-name">Trauma & PTSD</h2>
+        <p class="topic-card-desc">Complex trauma, PTSD, EMDR, somatic therapies, and the long road to healing. Clinician insights and survivor stories.</p>
+        <div class="topic-card-stats">
+          <span class="topic-card-stat"><strong>6.9k</strong> posts</span>
+          <span class="topic-card-stat"><strong>9.3k</strong> members</span>
+        </div>
+      </div>
+
+      <div class="topic-card fade-in" style="transition-delay:0.14s">
+        <div class="topic-card-icon" style="background:#e0f2f1;">🍃</div>
+        <h2 class="topic-card-name">Mindfulness</h2>
+        <p class="topic-card-desc">Meditation science, MBSR, present-moment awareness, and the evidence base for contemplative practices.</p>
+        <div class="topic-card-stats">
+          <span class="topic-card-stat"><strong>5.1k</strong> posts</span>
+          <span class="topic-card-stat"><strong>7.4k</strong> members</span>
+        </div>
+      </div>
+
+      <div class="topic-card fade-in" style="transition-delay:0.17s">
+        <div class="topic-card-icon" style="background:#fff3e0;">🔄</div>
+        <h2 class="topic-card-name">CBT & Therapy</h2>
+        <p class="topic-card-desc">Cognitive-behavioral therapy, DBT, ACT, schema therapy. Learn the techniques and how to use them in daily life.</p>
+        <div class="topic-card-stats">
+          <span class="topic-card-stat"><strong>7.3k</strong> posts</span>
+          <span class="topic-card-stat"><strong>9.8k</strong> members</span>
+        </div>
+      </div>
+
+      <div class="topic-card fade-in" style="transition-delay:0.2s">
+        <div class="topic-card-icon" style="background:#f3e5f5;">🔗</div>
+        <h2 class="topic-card-name">Relationships</h2>
+        <p class="topic-card-desc">Attachment theory, communication, intimacy, conflict resolution, and how our early bonds shape all relationships.</p>
+        <div class="topic-card-stats">
+          <span class="topic-card-stat"><strong>9.6k</strong> posts</span>
+          <span class="topic-card-stat"><strong>14.2k</strong> members</span>
+        </div>
+      </div>
+
+      <div class="topic-card fade-in" style="transition-delay:0.23s">
+        <div class="topic-card-icon" style="background:#e8f5e9;">🌱</div>
+        <h2 class="topic-card-name">Self-Esteem</h2>
+        <p class="topic-card-desc">Self-worth, inner critic, perfectionism, and building a healthy relationship with yourself.</p>
+        <div class="topic-card-stats">
+          <span class="topic-card-stat"><strong>4.8k</strong> posts</span>
+          <span class="topic-card-stat"><strong>6.7k</strong> members</span>
+        </div>
+      </div>
+
+      <div class="topic-card fade-in" style="transition-delay:0.26s">
+        <div class="topic-card-icon" style="background:#ddeef8;">🔬</div>
+        <h2 class="topic-card-name">Neuroscience</h2>
+        <p class="topic-card-desc">Brain science, neuroplasticity, the gut-brain axis, psychopharmacology, and the biology of behavior.</p>
+        <div class="topic-card-stats">
+          <span class="topic-card-stat"><strong>3.9k</strong> posts</span>
+          <span class="topic-card-stat"><strong>5.5k</strong> members</span>
+        </div>
+      </div>
+
+      <div class="topic-card fade-in" style="transition-delay:0.29s">
+        <div class="topic-card-icon" style="background:#fafafa;">🕊️</div>
+        <h2 class="topic-card-name">Grief & Loss</h2>
+        <p class="topic-card-desc">Bereavement, the stages of grief, disenfranchised grief, and how to hold loss while continuing to live.</p>
+        <div class="topic-card-stats">
+          <span class="topic-card-stat"><strong>3.2k</strong> posts</span>
+          <span class="topic-card-stat"><strong>4.9k</strong> members</span>
+        </div>
+      </div>
+
+      <div class="topic-card fade-in" style="transition-delay:0.32s">
+        <div class="topic-card-icon" style="background:#fff8e1;">💤</div>
+        <h2 class="topic-card-name">Sleep & Fatigue</h2>
+        <p class="topic-card-desc">Insomnia, sleep hygiene, CBT-I, circadian rhythms, and why rest is the foundation of mental health.</p>
+        <div class="topic-card-stats">
+          <span class="topic-card-stat"><strong>2.7k</strong> posts</span>
+          <span class="topic-card-stat"><strong>3.8k</strong> members</span>
+        </div>
+      </div>
+
+      <div class="topic-card fade-in" style="transition-delay:0.35s">
+        <div class="topic-card-icon" style="background:#e3f2fd;">🎭</div>
+        <h2 class="topic-card-name">Personality</h2>
+        <p class="topic-card-desc">The Big Five, personality disorders, introversion and extroversion, and what really drives who we are.</p>
+        <div class="topic-card-stats">
+          <span class="topic-card-stat"><strong>4.1k</strong> posts</span>
+          <span class="topic-card-stat"><strong>6.0k</strong> members</span>
+        </div>
+      </div>
+
+      <div class="topic-card fade-in" style="transition-delay:0.38s">
+        <div class="topic-card-icon" style="background:#f3e5f5;">⚖️</div>
+        <h2 class="topic-card-name">OCD & Intrusive Thoughts</h2>
+        <p class="topic-card-desc">OCD spectrum, ERP therapy, intrusive thoughts, scrupulosity, and the difference between obsessions and genuine risk.</p>
+        <div class="topic-card-stats">
+          <span class="topic-card-stat"><strong>3.5k</strong> posts</span>
+          <span class="topic-card-stat"><strong>5.1k</strong> members</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div><!-- end page-topics -->
+
+
+<!-- ============================================================
+     PAGE: ARTICLE
+     ============================================================ -->
+<div id="page-article" class="page">
+
+  <div class="container container--default">
+    <header class="article-header">
+      <div class="article-eyebrow">
+        <a href="#" class="article-back-link" data-page="page-home">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+          Back to feed
+        </a>
+        <span class="post-tag post-tag--research">Research Spotlight</span>
+      </div>
+
+      <h1 class="article-title">
+        The Science of Emotional Regulation: Why Some People Handle Stress Better Than Others
+      </h1>
+      <p class="article-subtitle">
+        New research reveals that emotional regulation isn't a fixed trait — it's a learnable set of skills rooted in prefrontal cortex activity, early attachment patterns, and neuroplasticity. Here's what the evidence says, and what you can do about it.
+      </p>
+
+      <div class="article-byline">
+        <div class="article-author-avatar" style="font-size:var(--text-sm);">DR</div>
+        <div class="article-author-details">
+          <div class="article-author-name">Dr. Rachel Osei</div>
+          <div class="article-author-title">Clinical Psychologist · Stanford Medicine</div>
+        </div>
+        <div class="article-meta-right">
+          <div class="article-meta-item">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            8 min read
+          </div>
+          <div class="article-meta-item">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            March 20, 2026
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero image -->
+    <div class="article-hero-image fade-in">
+      <div style="width:100%;height:460px;background:linear-gradient(135deg, #0a3d62 0%, #1d6fa4 45%, #1a8fa6 75%, #0d7c6e 100%); display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+        <svg width="200" height="200" viewBox="0 0 200 200" fill="none" opacity="0.2">
+          <circle cx="100" cy="100" r="90" stroke="white" stroke-width="2"/>
+          <circle cx="100" cy="100" r="65" stroke="white" stroke-width="1.5"/>
+          <circle cx="100" cy="100" r="40" stroke="white" stroke-width="1"/>
+          <path d="M100 20 C100 20 70 50 70 80 C70 100 82 115 100 115 C118 115 130 100 130 80 C130 50 100 20 100 20Z" fill="white" opacity="0.8"/>
+          <line x1="100" y1="115" x2="100" y2="155" stroke="white" stroke-width="3"/>
+          <line x1="80" y1="135" x2="120" y2="135" stroke="white" stroke-width="2"/>
+        </svg>
+        <div style="position:absolute;bottom:var(--space-6);left:var(--space-6);right:var(--space-6);">
+          <p style="color:rgba(255,255,255,0.7);font-size:var(--text-xs);">Illustration: Neural circuits involved in emotional regulation, including the prefrontal cortex–amygdala pathway</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Article body -->
+    <article class="article-body fade-in" style="transition-delay:0.1s">
+
+      <p>When a car cuts you off in traffic, two people can have dramatically different responses. One person might shrug it off within seconds. Another might stew in anger for the next twenty minutes, heart still pounding as they arrive at work. Why? And more importantly — can that gap be closed?</p>
+
+      <p>The answer, according to a growing body of research in affective neuroscience, is <em>yes</em> — but the mechanism is more nuanced than most people expect.</p>
+
+      <h2>The Prefrontal Cortex vs. the Amygdala</h2>
+
+      <p>Emotional regulation lives at the intersection of two brain regions in constant conversation: the amygdala, which processes emotional salience and threat detection, and the prefrontal cortex (PFC), which provides executive control, perspective-taking, and inhibitory modulation.</p>
+
+      <blockquote>
+        <p>"The strength of the connection between your PFC and amygdala — not just which one 'wins' — is what determines how well you regulate emotion under pressure."</p>
+      </blockquote>
+
+      <p>Traditionally, emotional regulation was framed as the PFC "dampening" the amygdala — a top-down suppression model. But newer research from labs at Columbia, Berkeley, and the Max Planck Institute paints a more collaborative picture. Regulation isn't suppression; it's <em>modulation</em>. The amygdala and PFC co-regulate each other through feedback loops, and individuals who regulate well tend to have stronger structural and functional connectivity between these regions.</p>
+
+      <h2>So Why Are Some People Better at It?</h2>
+
+      <p>Three factors appear most strongly predictive of emotional regulation ability:</p>
+
+      <div class="callout">
+        <div class="callout-label">Key finding</div>
+        <p style="font-size:var(--text-sm);color:var(--color-text);line-height:1.7;margin:0;">Longitudinal studies suggest that early attachment security accounts for approximately 18–24% of variance in adult emotional regulation ability — more than genetic factors alone, and much more than socioeconomic status.</p>
+      </div>
+
+      <h3>1. Early Attachment Security</h3>
+      <p>Children with secure attachment to caregivers develop internal working models of emotion as something manageable and relational. This shapes their default orientation toward distress — as something to approach and work through, rather than avoid or be overwhelmed by.</p>
+
+      <h3>2. Neuroplasticity and Practice</h3>
+      <p>The brain is not fixed. Repeated practice of regulation strategies — reappraisal, mindful awareness, distress tolerance — physically remodels neural circuitry over time. The PFC-amygdala connection is not inherited in finished form; it's built through experience.</p>
+
+      <h3>3. Interoceptive Awareness</h3>
+      <p>A surprisingly strong predictor is interoceptive awareness — the ability to accurately notice signals from your own body. People who can identify subtle physiological shifts (tension in the jaw, a flutter in the chest) before an emotion fully "arrives" have a longer window to choose their response. This is part of why body-based practices like yoga, somatic therapy, and breathwork have demonstrable effects on emotional reactivity.</p>
+
+      <h2>What Can You Actually Do?</h2>
+
+      <p>The evidence converges on several practices with robust support:</p>
+
+      <ul>
+        <li><strong>Cognitive reappraisal</strong> — deliberately reframing the meaning of a situation before responding. Unlike suppression, reappraisal reduces physiological arousal as well as subjective distress.</li>
+        <li><strong>Mindfulness-based stress reduction (MBSR)</strong> — the 8-week program has the most evidence, with measurable changes in amygdala volume and reactivity.</li>
+        <li><strong>Expressive writing</strong> — 20 minutes of journaling about emotional experiences for 3–4 consecutive days has shown lasting effects on immune function, mood, and stress reactivity.</li>
+        <li><strong>Somatic tracking</strong> — learning to name and locate physical sensations before they escalate. This is the foundation of somatic experiencing and EMDR.</li>
+      </ul>
+
+      <p>The most important takeaway: emotional regulation is a skill set, not a personality trait. That distinction matters because it means the gap between someone who seems effortlessly regulated and someone who struggles is not fixed by nature — it's a distance that can be closed, with the right practice and, often, with support.</p>
+
+      <div class="post-tags" style="margin-top:var(--space-8);">
+        <span class="post-tag post-tag--research">Neuroscience</span>
+        <span class="post-tag post-tag--mindfulness">Mindfulness</span>
+        <span class="post-tag post-tag--cbt">CBT</span>
+        <span class="post-tag post-tag--trauma">Trauma</span>
+      </div>
+
+    </article>
+
+    <!-- Comments -->
+    <section class="comments-section fade-in" style="transition-delay:0.15s" aria-labelledby="comments-heading">
+      <div class="comments-header">
+        <h2 class="comments-title" id="comments-heading">83 Comments</h2>
+        <div class="comments-sort" role="group" aria-label="Sort comments">
+          <button class="sort-btn active">Top</button>
+          <button class="sort-btn">New</button>
+          <button class="sort-btn">Old</button>
+        </div>
+      </div>
+
+      <!-- Compose -->
+      <div class="comment-compose">
+        <div class="compose-avatar">Y</div>
+        <div class="compose-input-area">
+          <textarea class="compose-input" placeholder="Share your thoughts or experiences…" rows="3"></textarea>
+          <div class="compose-footer">
+            <button class="compose-submit">Post comment</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comment thread -->
+      <div class="comment-thread" role="list">
+
+        <div class="comment" role="listitem">
+          <div class="comment-avatar" style="background:#ddeef8;color:#3949ab;">JM</div>
+          <div class="comment-content">
+            <div class="comment-header">
+              <span class="comment-author">jamie_m</span>
+              <span class="comment-flair">LCSW</span>
+              <span class="comment-time">3h ago</span>
+            </div>
+            <p class="comment-body">This is one of the clearest explanations of the PFC-amygdala relationship I've seen for a general audience. The reframing from "suppression" to "modulation" is important — I've spent so much time in sessions trying to explain exactly this. Saving this to share with clients.</p>
+            <div class="comment-actions">
+              <button class="comment-action" data-upvote><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg><span data-vote-count>147</span></button>
+              <button class="comment-action">Reply</button>
+              <button class="comment-action">Share</button>
+            </div>
+            <div class="comment-replies">
+              <div class="comment">
+                <div class="comment-avatar" style="background:var(--color-primary-highlight);color:var(--color-primary);">DR</div>
+                <div class="comment-content">
+                  <div class="comment-header">
+                    <span class="comment-author">Dr. Rachel Osei</span>
+                    <span class="comment-flair">Author</span>
+                    <span class="comment-time">2h ago</span>
+                  </div>
+                  <p class="comment-body">Thank you — yes, that distinction tends to matter a lot clinically. Clients who come in trying to "turn off" their emotions often feel like failures when the emotion persists. Shifting to modulation (and co-regulation!) tends to be more liberating.</p>
+                  <div class="comment-actions">
+                    <button class="comment-action" data-upvote><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg><span data-vote-count>89</span></button>
+                    <button class="comment-action">Reply</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="comment" role="listitem">
+          <div class="comment-avatar" style="background:#e8f5e9;color:#2e7d32;">SL</div>
+          <div class="comment-content">
+            <div class="comment-header">
+              <span class="comment-author">Sarah_L</span>
+              <span class="comment-time">5h ago</span>
+            </div>
+            <p class="comment-body">The section on interoceptive awareness just clicked something for me. I've been in therapy for 2 years for anxiety and my therapist keeps talking about "noticing sensations before they escalate" and I could never understand WHY that helps. This explains the mechanism. The window thing makes complete sense now.</p>
+            <div class="comment-actions">
+              <button class="comment-action" data-upvote><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg><span data-vote-count>203</span></button>
+              <button class="comment-action">Reply</button>
+              <button class="comment-action">Share</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="comment" role="listitem">
+          <div class="comment-avatar" style="background:#fff3e0;color:#e65100;">CP</div>
+          <div class="comment-content">
+            <div class="comment-header">
+              <span class="comment-author">cbt_practitioner</span>
+              <span class="comment-flair">PhD Student</span>
+              <span class="comment-time">6h ago</span>
+            </div>
+            <p class="comment-body">Worth noting: the stat about early attachment accounting for 18–24% of variance — do you have the specific studies? I want to pull the originals. Also curious whether that estimate holds for adults who had significant insecure attachment but underwent attachment-focused therapy as adults.</p>
+            <div class="comment-actions">
+              <button class="comment-action" data-upvote><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg><span data-vote-count>64</span></button>
+              <button class="comment-action">Reply</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="comment" role="listitem">
+          <div class="comment-avatar" style="background:#fce4ec;color:#c62828;">MW</div>
+          <div class="comment-content">
+            <div class="comment-header">
+              <span class="comment-author">mwinter_healing</span>
+              <span class="comment-time">8h ago</span>
+            </div>
+            <p class="comment-body">I burst into tears reading the part about early attachment. I've been blaming myself for being "bad at emotions" my whole life and seeing it written as a skill shaped by early experience, not a character flaw… it's a lot. In a good way.</p>
+            <div class="comment-actions">
+              <button class="comment-action" data-upvote><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg><span data-vote-count>421</span></button>
+              <button class="comment-action">Reply</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+</div><!-- end page-article -->
+
+<!-- Post Detail Page -->
+<div id="page-post" class="page"></div>
+
+<!-- Profile Page -->
+<div id="page-profile" class="page"></div>
+
+<!-- Settings Page -->
+<div id="page-settings" class="page"></div>
+
+<!-- Ticket Portal -->
+<div id="page-tickets" class="page"></div>
+
+<!-- Admin Panel -->
+<div id="page-admin" class="page"></div>
+
+<!-- Shop -->
+<div id="page-shop" class="page"></div>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<!-- Help Desk Bar -->
+<div class="helpdesk-bar" id="helpdesk-bar">
+  <div class="helpdesk-bar-inner">
+    <div class="helpdesk-bar-left">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <span>Help Desk</span>
+      <span class="helpdesk-bar-sub">Get support, track tickets, and view updates</span>
+    </div>
+    <div class="helpdesk-bar-actions">
+      <button class="helpdesk-bar-btn" id="hd-submit-ticket">Submit Ticket</button>
+      <button class="helpdesk-bar-btn helpdesk-bar-btn--secondary" id="hd-my-tickets">My Tickets</button>
+      <button class="helpdesk-bar-btn helpdesk-bar-btn--secondary" id="hd-whats-new">What's New</button>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo" data-page="page-home">
+          <svg width="24" height="24" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <circle cx="16" cy="16" r="14" fill="var(--color-primary)" opacity="0.12"/>
+            <circle cx="16" cy="16" r="14" stroke="var(--color-primary)" stroke-width="1.5"/>
+            <text x="16" y="21.5" text-anchor="middle" font-size="17" fill="var(--color-primary)" font-family="Georgia,serif" font-style="italic">ψ</text>
+          </svg>
+          Psyche
+        </a>
+        <p class="footer-tagline">Where minds meet. A community-driven psychology platform for everyone.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Explore</div>
+        <ul class="footer-links">
+          <li><a href="#" data-page="page-home">Home Feed</a></li>
+          <li><a href="#" data-page="page-forum">Discussions</a></li>
+          <li><a href="#" data-page="page-topics">All Topics</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Community</div>
+        <ul class="footer-links">
+          <li><a href="#">Guidelines</a></li>
+          <li><a href="#">About Psyche</a></li>
+          <li><a href="#">Contribute</a></li>
+          <li><a href="#">Moderators</a></li>
+          <li><a href="#" data-page="page-shop">Shop</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Support</div>
+        <ul class="footer-links">
+          <li><a href="#" id="footer-submit-ticket">Submit a Ticket</a></li>
+          <li><a href="#" data-page="page-tickets">My Tickets</a></li>
+          <li><a href="#">Find a Therapist</a></li>
+          <li><a href="#">Crisis Resources</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-bottom-text">© 2026 Psyche. This platform is not a substitute for professional mental health care.</p>
+      <p class="footer-bottom-text">
+        <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer">Created with Perplexity Computer</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- Toast notification -->
+<div class="toast" role="status" aria-live="polite"></div>
+
+<!-- Scripts -->
+<script src="js/roles.js"></script>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/profile.js"></script>
+<script src="js/admin.js"></script>
+<script src="js/feed.js"></script>
+<script src="js/composer.js"></script>
+<script src="js/shop.js"></script>
+<script src="js/ops.js"></script>
+<script src="js/helpdesk.js"></script>
+<script src="js/storage.js"></script>
+</body>
+</html>

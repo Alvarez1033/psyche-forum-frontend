@@ -1,0 +1,263 @@
+/* ============================================================
+   PSYCHE — Psychology Community Platform
+   Base CSS + Design Tokens
+   ============================================================ */
+
+/* ---- DESIGN TOKENS ---- */
+:root {
+  /* Type scale */
+  --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
+  --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
+  --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
+  --text-lg:   clamp(1.125rem, 1rem    + 0.75vw, 1.5rem);
+  --text-xl:   clamp(1.5rem,   1.2rem  + 1.25vw, 2.25rem);
+  --text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,  3.5rem);
+  --text-3xl:  clamp(2.5rem,   1rem    + 4vw,    5rem);
+  --text-hero: clamp(3rem,     0.5rem  + 7vw,    8rem);
+
+  /* Spacing */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* Radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Content widths */
+  --content-narrow: 640px;
+  --content-default: 960px;
+  --content-wide: 1240px;
+  --content-full: 100%;
+
+  /* Fonts */
+  --font-display: 'Inter', 'Helvetica Neue', sans-serif;
+  --font-body: 'Inter', 'Helvetica Neue', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+/* ---- LIGHT MODE (Professional: clean white + slate-navy) ---- */
+:root, [data-theme="light"] {
+  --color-bg:              #f4f6f8;
+  --color-surface:         #ffffff;
+  --color-surface-2:       #ffffff;
+  --color-surface-offset:  #edf0f3;
+  --color-surface-offset-2:#e4e8ed;
+  --color-surface-dynamic: #d8dde4;
+  --color-divider:         #e2e6eb;
+  --color-border:          #d1d7df;
+
+  /* Text — neutral slate */
+  --color-text:            #0f1923;
+  --color-text-muted:      #4f5d6e;
+  --color-text-faint:      #9aaab8;
+  --color-text-inverse:    #ffffff;
+
+  /* Primary: steel blue — clinical, authoritative, calm */
+  --color-primary:         #1d6fa4;
+  --color-primary-hover:   #165d8c;
+  --color-primary-active:  #104a72;
+  --color-primary-highlight: #ddeef8;
+  --color-primary-light:   #f0f7fc;
+
+  /* Accent: teal-green — insight, growth */
+  --color-accent:          #0d7c6e;
+  --color-accent-hover:    #0a6459;
+  --color-accent-highlight: #e0f4f1;
+
+  /* Tag colors */
+  --color-tag-anxiety:     #e8f5e9;
+  --color-tag-anxiety-text:#2e7d32;
+  --color-tag-depression:  #e3edf6;
+  --color-tag-depression-text: #1a5276;
+  --color-tag-trauma:      #fce4ec;
+  --color-tag-trauma-text: #922b21;
+  --color-tag-mindfulness: #e0f4f1;
+  --color-tag-mindfulness-text: #0d7c6e;
+  --color-tag-cbt:         #fef9e7;
+  --color-tag-cbt-text:    #9a6e00;
+
+  /* Functional */
+  --color-success:         #1a7a4a;
+  --color-success-highlight: #e6f6ed;
+  --color-error:           #b91c1c;
+  --color-error-highlight: #fee2e2;
+  --color-warning:         #b45309;
+  --color-warning-highlight: #fef3c7;
+
+  /* Shadows — clean, subtle */
+  --shadow-sm:   0 1px 3px rgba(15, 25, 35, 0.07);
+  --shadow-md:   0 4px 16px rgba(15, 25, 35, 0.09);
+  --shadow-lg:   0 12px 40px rgba(15, 25, 35, 0.12);
+  --shadow-card: 0 1px 4px rgba(15, 25, 35, 0.08);
+}
+
+/* ---- DARK MODE ---- */
+[data-theme="dark"] {
+  --color-bg:              #0d1117;
+  --color-surface:         #161b22;
+  --color-surface-2:       #1c2230;
+  --color-surface-offset:  #192030;
+  --color-surface-offset-2: #1e2535;
+  --color-surface-dynamic: #263044;
+  --color-divider:         #21293a;
+  --color-border:          #2d3748;
+  --color-text:            #d4dce8;
+  --color-text-muted:      #7b8fa6;
+  --color-text-faint:      #44566b;
+  --color-text-inverse:    #0d1117;
+  --color-primary:         #4da3d8;
+  --color-primary-hover:   #6db8e6;
+  --color-primary-active:  #8ecbf0;
+  --color-primary-highlight: #12283a;
+  --color-primary-light:   #0f1e2d;
+  --color-accent:          #3ecfba;
+  --color-accent-hover:    #5dddc9;
+  --color-accent-highlight: #0d2420;
+  --color-tag-anxiety:     #132218;
+  --color-tag-anxiety-text:#6dbf82;
+  --color-tag-depression:  #0f1e2d;
+  --color-tag-depression-text: #6aadcf;
+  --color-tag-trauma:      #2a1218;
+  --color-tag-trauma-text: #e88a8a;
+  --color-tag-mindfulness: #0c2220;
+  --color-tag-mindfulness-text: #5dcbbf;
+  --color-tag-cbt:         #231d0a;
+  --color-tag-cbt-text:    #d4b06a;
+  --color-success:         #4db87a;
+  --color-success-highlight: #0f2217;
+  --color-error:           #e88a8a;
+  --color-error-highlight: #2a1218;
+  --color-warning:         #d4b06a;
+  --color-warning-highlight: #231d0a;
+  --shadow-sm:   0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md:   0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-lg:   0 12px 40px rgba(0, 0, 0, 0.5);
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-bg: #0d1117;
+    --color-surface: #161b22;
+    --color-surface-2: #1c2230;
+    --color-surface-offset: #192030;
+    --color-surface-offset-2: #1e2535;
+    --color-surface-dynamic: #263044;
+    --color-divider: #21293a;
+    --color-border: #2d3748;
+    --color-text: #d4dce8;
+    --color-text-muted: #7b8fa6;
+    --color-text-faint: #44566b;
+    --color-text-inverse: #0d1117;
+    --color-primary: #4da3d8;
+    --color-primary-hover: #6db8e6;
+    --color-primary-active: #8ecbf0;
+    --color-primary-highlight: #12283a;
+    --color-primary-light: #0f1e2d;
+    --color-accent: #3ecfba;
+    --color-accent-hover: #5dddc9;
+    --color-accent-highlight: #0d2420;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
+    --shadow-lg: 0 12px 40px rgba(0,0,0,0.5);
+    --shadow-card: 0 2px 8px rgba(0,0,0,0.35);
+  }
+}
+
+/* ---- BASE RESET ---- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--space-20);
+}
+
+body {
+  min-height: 100dvh;
+  line-height: 1.65;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+img, picture, video, canvas, svg { display: block; max-width: 100%; height: auto; }
+ul[role="list"], ol[role="list"] { list-style: none; }
+input, button, textarea, select { font: inherit; color: inherit; }
+h1, h2, h3, h4, h5, h6 { text-wrap: balance; line-height: 1.2; }
+p, li, figcaption { text-wrap: pretty; max-width: 72ch; }
+
+::selection {
+  background: oklch(from var(--color-primary) l c h / 0.22);
+  color: var(--color-text);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+button { cursor: pointer; background: none; border: none; }
+table { border-collapse: collapse; width: 100%; }
+a, button, [role="button"], [role="link"], input, textarea, select {
+  transition: color var(--transition-interactive),
+              background var(--transition-interactive),
+              border-color var(--transition-interactive),
+              box-shadow var(--transition-interactive),
+              opacity var(--transition-interactive);
+}
+a { color: inherit; text-decoration: none; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;
+}
+
+/* ---- UTILITY ---- */
+.container {
+  width: 100%;
+  max-width: var(--content-wide);
+  margin-inline: auto;
+  padding-inline: clamp(var(--space-4), 4vw, var(--space-8));
+}
+
+.container--narrow {
+  max-width: var(--content-narrow);
+}
+
+.container--default {
+  max-width: var(--content-default);
+}

@@ -706,12 +706,12 @@ function wireUserActions(page) {
   });
   // Save role buttons
   page.querySelectorAll('.admin-action-btn--role').forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', async () => {
       const uid = btn.dataset.uid;
       const select = page.querySelector(`.admin-role-select[data-uid="${uid}"]`);
       const newRole = select?.value;
       if (!newRole) return;
-      const result = PSYCHE.assignRole(uid, newRole);
+      const result = await PSYCHE.assignRole(uid, newRole);
       if (result.success) {
         const roleDef = PSYCHE.roles[newRole];
         const badge = page.querySelector(`tr[data-uid="${uid}"] .role-badge-sm`);
@@ -727,9 +727,9 @@ function wireUserActions(page) {
 
   // Ban buttons
   page.querySelectorAll('.admin-action-btn--ban').forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', async () => {
       const uid = btn.dataset.uid;
-      const result = PSYCHE.setBanned(uid, true);
+      const result = await PSYCHE.setBanned(uid, true);
       if (result.success) {
         showToast('User banned.');
         const row = page.querySelector(`tr[data-uid="${uid}"]`);
@@ -748,9 +748,9 @@ function wireUserActions(page) {
 
   // Unban buttons
   page.querySelectorAll('.admin-action-btn--unban').forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', async () => {
       const uid = btn.dataset.uid;
-      const result = PSYCHE.setBanned(uid, false);
+      const result = await PSYCHE.setBanned(uid, false);
       if (result.success) {
         showToast('User unbanned.');
         const row = page.querySelector(`tr[data-uid="${uid}"]`);
@@ -1338,8 +1338,8 @@ function openStaffUserView(userId) {
   });
 
   // Ban
-  overlay.querySelector('#sview-ban-btn')?.addEventListener('click', () => {
-    const result = PSYCHE.setBanned(userId, !u.banned);
+  overlay.querySelector('#sview-ban-btn')?.addEventListener('click', async () => {
+    const result = await PSYCHE.setBanned(userId, !u.banned);
     if (result.success) { showToast(u.banned ? 'User unbanned.' : 'User banned.'); overlay.remove(); }
     else showToast(result.error);
   });

@@ -23,6 +23,36 @@ const PSYCHE = {
     superadmin:  { label: 'Superadmin',   color: '#7c2d12', bg: '#fff1f2', level: 6 },
   },
 
+  // Map API user object to frontend format
+  _mapApiUser(apiUser) {
+    return {
+      id: apiUser.id,
+      email: apiUser.email,
+      username: apiUser.username,
+      displayName: apiUser.name || apiUser.username,
+      avatarColor: apiUser.avatar_color || '#6366f1',
+      avatar: null,
+      bio: apiUser.bio || '',
+      role: apiUser.role || 'member',
+      interests: apiUser.interests || [],
+      banned: apiUser.banned || false,
+      postCount: apiUser.post_count || 0,
+      joinedAt: apiUser.created_at || new Date().toISOString(),
+      karma: 0,
+      commentCount: 0,
+      pronouns: '',
+      location: '',
+      website: '',
+      credentials: '',
+      institution: '',
+      followedTopics: [],
+      joinedCommunities: [],
+      settings: { emailNotifications: true, replyNotifications: true, mentionNotifications: true, upvoteNotifications: false, profilePublic: true, showEmail: false, showLocation: true, showActivity: true, contentWarnings: true, darkModeDefault: false },
+      pinnedPost: null,
+      onboarding: { complete: true },
+    };
+  },
+
   // Permission helpers
   isSuperAdmin(u) { return (u || this.currentUser)?.role === 'superadmin'; },
   isAdmin(u)      { return ['admin','superadmin'].includes((u || this.currentUser)?.role); },
@@ -523,12 +553,12 @@ function openAuthModal(tab = 'signin') {
   });
 
   // Form submissions
-  overlay.querySelector('#form-signin').addEventListener('submit', e => {
+  overlay.querySelector('#form-signin').addEventListener('submit', async e => {
     e.preventDefault();
     const email = document.getElementById('signin-email').value;
     const password = document.getElementById('signin-password').value;
     const errEl = document.getElementById('signin-error');
-    const result = PSYCHE.login(email, password);
+    const result = await PSYCHE.login(email, password);
     if (result.success) {
       overlay.remove();
       showToast(`Welcome back, ${result.user.displayName}!`);
@@ -538,7 +568,7 @@ function openAuthModal(tab = 'signin') {
     }
   });
 
-  overlay.querySelector('#form-signup').addEventListener('submit', e => {
+  overlay.querySelector('#form-signup').addEventListener('submit', async e => {
     e.preventDefault();
     const errEl = document.getElementById('signup-error');
     const topics = [...overlay.querySelectorAll('.topic-pick-btn.selected')].map(b => b.dataset.topic);
@@ -549,7 +579,7 @@ function openAuthModal(tab = 'signin') {
       password:    document.getElementById('signup-password').value,
       role:        document.getElementById('signup-role').value,
     };
-    const result = PSYCHE.signup(data);
+    const result = await PSYCHE.signup(data);
     if (result.success) {
       // Update via updateProfile so storage layer picks it up
       PSYCHE.updateProfile({ followedTopics: topics });

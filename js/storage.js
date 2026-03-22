@@ -1,34 +1,17 @@
 /* ============================================================
-   PSYCHE — localStorage Persistence Layer
-   Saves/loads all user data so nothing is lost on refresh.
-   Runs AFTER profile.js (needs PSYCHE to exist).
+   PSYCHE — Persistence Layer (API-backed)
+   Restores session from JWT tokens on page load.
+   Patches PSYCHE methods to call the backend API.
+   localStorage is used ONLY for JWT tokens + UI prefs.
    ============================================================ */
 
 const PSYCHE_STORE = {
   KEYS: {
-    users:       'psyche_users',
-    currentUser: 'psyche_current_user_id',
     siteState:   'psyche_site_state',
     flagged:     'psyche_flagged_content',
   },
 
-  // ---- SAVE ----
-
-  saveUsers() {
-    try {
-      localStorage.setItem(this.KEYS.users, JSON.stringify(PSYCHE.users));
-    } catch(e) { console.warn('PSYCHE storage: could not save users', e); }
-  },
-
-  saveCurrentUser() {
-    try {
-      if (PSYCHE.currentUser) {
-        localStorage.setItem(this.KEYS.currentUser, PSYCHE.currentUser.id);
-      } else {
-        localStorage.removeItem(this.KEYS.currentUser);
-      }
-    } catch(e) { console.warn('PSYCHE storage: could not save session', e); }
-  },
+  // ---- LOCAL-ONLY SAVES (UI state, not user data) ----
 
   saveSiteState() {
     try {
@@ -47,52 +30,15 @@ const PSYCHE_STORE = {
   },
 
   saveAll() {
-    this.saveUsers();
-    this.saveCurrentUser();
     this.saveSiteState();
     this.saveFlagged();
   },
 
-  // ---- LOAD ----
+  // Keep saveUsers/saveCurrentUser as no-ops for backward compat
+  saveUsers()      {},
+  saveCurrentUser() {},
 
-  loadUsers() {
-    try {
-      const raw = localStorage.getItem(this.KEYS.users);
-      if (!raw) return false;
-      const saved = JSON.parse(raw);
-
-      // Merge saved users into PSYCHE.users
-      // Superadmin is always seeded from code — never overwrite its password/role
-      Object.entries(saved).forEach(([id, user]) => {
-        if (id === 'u_superadmin') {
-          // Keep hardcoded superadmin credentials but restore other fields
-          const existing = PSYCHE.users['u_superadmin'];
-          PSYCHE.users['u_superadmin'] = Object.assign({}, user, {
-            email:    existing.email,
-            password: existing.password,
-            role:     'superadmin',
-          });
-        } else {
-          PSYCHE.users[id] = user;
-        }
-      });
-      return true;
-    } catch(e) {
-      console.warn('PSYCHE storage: could not load users', e);
-      return false;
-    }
-  },
-
-  loadSession() {
-    try {
-      const uid = localStorage.getItem(this.KEYS.currentUser);
-      if (uid && PSYCHE.users[uid]) {
-        PSYCHE.currentUser = PSYCHE.users[uid];
-        return true;
-      }
-    } catch(e) {}
-    return false;
-  },
+  // ---- LOAD LOCAL STATE ----
 
   loadSiteState() {
     try {
@@ -114,140 +60,161 @@ const PSYCHE_STORE = {
     } catch(e) {}
   },
 
-  // ---- PATCH PSYCHE METHODS to auto-save ----
+  // ---- PATCH PSYCHE METHODS to use API ----
 
   install() {
-    const store = this;
-
-    // Patch: createUser
-    const _createUser = PSYCHE.createUser.bind(PSYCHE);
-    PSYCHE.createUser = function(data) {
-      const user = _createUser(data);
-      store.saveUsers();
-      return user;
-    };
-
-    // Patch: signup (save session when new user is created)
-    const _signup = PSYCHE.signup.bind(PSYCHE);
-    PSYCHE.signup = function(data) {
-      const result = _signup(data);
-      if (result.success) {
-        store.saveUsers();
-        store.saveCurrentUser();
+    // Patch: signup — call API
+    PSYCHE.signup = async function(data) {
+      if (!data.email || !data.password || !data.username) {
+        return { success: false, error: 'Please fill in all required fields.' };
       }
-      return result;
+      if (data.password.length < 8) {
+        return { success: false, error: 'Password must be at least 8 characters.' };
+      }
+      try {
+        const res = await API.signup({
+          username: data.username,
+          email:    data.email,
+          password: data.password,
+          name:     data.displayName || data.username,
+        });
+        const user = PSYCHE._mapApiUser(res.user);
+        PSYCHE.users[user.id] = user;
+        PSYCHE.currentUser = user;
+        PSYCHE._updateNav();
+        return { success: true, user };
+      } catch(err) {
+        return { success: false, error: err.message };
+      }
     };
 
-    // Patch: login
-    const _login = PSYCHE.login.bind(PSYCHE);
-    PSYCHE.login = function(emailOrUsername, password) {
-      const result = _login(emailOrUsername, password);
-      if (result.success) store.saveCurrentUser();
-      return result;
+    // Patch: login — call API
+    PSYCHE.login = async function(emailOrUsername, password) {
+      try {
+        const res = await API.login(emailOrUsername, password);
+        const user = PSYCHE._mapApiUser(res.user);
+        PSYCHE.users[user.id] = user;
+        PSYCHE.currentUser = user;
+        PSYCHE._updateNav();
+        return { success: true, user };
+      } catch(err) {
+        return { success: false, error: err.message };
+      }
     };
 
-    // Patch: logout
-    const _logout = PSYCHE.logout.bind(PSYCHE);
-    PSYCHE.logout = function() {
-      _logout();
-      store.saveCurrentUser();
+    // Patch: logout — call API
+    PSYCHE.logout = async function() {
+      try { await API.logout(); } catch {}
+      Auth.clear();
+      PSYCHE.currentUser = null;
+      PSYCHE._updateNav();
+      navigateTo('page-home');
+      showToast('Signed out successfully.');
     };
 
-    // Patch: updateProfile
-    const _updateProfile = PSYCHE.updateProfile.bind(PSYCHE);
-    PSYCHE.updateProfile = function(fields) {
-      const result = _updateProfile(fields);
-      store.saveUsers();
-      return result;
+    // Patch: updateProfile — call API then update local
+    const _origUpdateProfile = PSYCHE.updateProfile.bind(PSYCHE);
+    PSYCHE.updateProfile = async function(fields) {
+      // Update locally first for immediate UI feedback
+      _origUpdateProfile(fields);
+      try {
+        const apiFields = {};
+        if (fields.displayName !== undefined) apiFields.name = fields.displayName;
+        if (fields.bio !== undefined) apiFields.bio = fields.bio;
+        if (fields.interests !== undefined) apiFields.interests = fields.interests;
+        if (fields.avatarColor !== undefined) apiFields.avatar_color = fields.avatarColor;
+        if (Object.keys(apiFields).length) {
+          await API.updateProfile(apiFields);
+        }
+      } catch(err) {
+        console.warn('Profile update API failed:', err.message);
+      }
+      return PSYCHE.currentUser;
     };
 
-    // Patch: updateSettings
-    const _updateSettings = PSYCHE.updateSettings.bind(PSYCHE);
-    PSYCHE.updateSettings = function(settings) {
-      const result = _updateSettings(settings);
-      store.saveUsers();
-      return result;
+    // Patch: updateAvatar — call API
+    const _origUpdateAvatar = PSYCHE.updateAvatar.bind(PSYCHE);
+    PSYCHE.updateAvatar = async function(color) {
+      _origUpdateAvatar(color);
+      try { await API.updateProfile({ avatar_color: color }); } catch {}
     };
 
-    // Patch: updateAvatar
-    const _updateAvatar = PSYCHE.updateAvatar.bind(PSYCHE);
-    PSYCHE.updateAvatar = function(color) {
-      _updateAvatar(color);
-      store.saveUsers();
+    // Patch: assignRole — call API
+    PSYCHE.assignRole = async function(targetId, newRole) {
+      try {
+        await API.setUserRole(targetId, newRole, '');
+        const target = PSYCHE.users[targetId];
+        if (target) target.role = newRole;
+        return { success: true };
+      } catch(err) {
+        return { success: false, error: err.message };
+      }
     };
 
-    // Patch: assignRole
-    const _assignRole = PSYCHE.assignRole.bind(PSYCHE);
-    PSYCHE.assignRole = function(targetId, newRole) {
-      const result = _assignRole(targetId, newRole);
-      if (result.success) store.saveUsers();
-      return result;
+    // Patch: setBanned — call API
+    PSYCHE.setBanned = async function(targetId, banned) {
+      try {
+        await API.setUserBan(targetId, banned, '');
+        const target = PSYCHE.users[targetId];
+        if (target) target.banned = banned;
+        return { success: true };
+      } catch(err) {
+        return { success: false, error: err.message };
+      }
     };
 
-    // Patch: setBanned
-    const _setBanned = PSYCHE.setBanned.bind(PSYCHE);
-    PSYCHE.setBanned = function(targetId, banned) {
-      const result = _setBanned(targetId, banned);
-      if (result.success) store.saveUsers();
-      return result;
-    };
-
-    console.log('[Psyche] Storage layer installed.');
+    console.log('[Psyche] API-backed storage layer installed.');
   },
 
   // ---- BOOTSTRAP ----
 
-  init() {
-    // 1. Load saved users (merges over seeded demo users)
-    const hadData = this.loadUsers();
-
-    // 2. Load saved site state + flagged content
+  async init() {
+    // 1. Load local-only state (site settings, flagged content)
     this.loadSiteState();
     this.loadFlagged();
 
-    // 3. Restore session (auto-login if they were logged in before)
-    const restored = this.loadSession();
-    if (restored) {
-      // Update nav to reflect restored login
-      PSYCHE._updateNav();
-      // Show announcement if active
-      if (typeof updateSiteAnnouncement === 'function') {
-        updateSiteAnnouncement();
+    // 2. Restore session from JWT tokens
+    if (Auth.isLoggedIn()) {
+      try {
+        const user = await API.me();
+        const mapped = PSYCHE._mapApiUser(user);
+        PSYCHE.users[mapped.id] = mapped;
+        PSYCHE.currentUser = mapped;
+        PSYCHE._updateNav();
+        if (typeof updateSiteAnnouncement === 'function') {
+          updateSiteAnnouncement();
+        }
+        console.log('[Psyche] Session restored from API.');
+      } catch(err) {
+        console.warn('[Psyche] Session restore failed:', err.message);
+        Auth.clear();
       }
     }
 
-    // 4. Patch all PSYCHE methods to auto-save
+    // 3. Patch PSYCHE methods to use API
     this.install();
-    // 5. Load shop + tickets (these scripts load before storage.js)
-    // Using setTimeout to ensure shop/ticket objects are initialized
+
+    // 4. Load shop + tickets (localStorage-based, kept as-is)
     setTimeout(() => {
       if (typeof PSYCHE_SHOP !== 'undefined') PSYCHE_SHOP.load();
       if (typeof PSYCHE_TICKETS !== 'undefined') PSYCHE_TICKETS.load();
       if (typeof PSYCHE_ROLES !== 'undefined') PSYCHE_ROLES.init();
     }, 0);
-
-    if (hadData) {
-      console.log(`[Psyche] Restored ${Object.keys(PSYCHE.users).length} users from storage.`);
-    }
   },
 
   // ---- UTILS ----
 
-  // Clear everything — useful for debugging or "factory reset"
   clear() {
+    Auth.clear();
     Object.values(this.KEYS).forEach(k => localStorage.removeItem(k));
     console.log('[Psyche] Storage cleared. Reload to start fresh.');
   },
 
-  // Get storage usage info
   info() {
-    const used = Object.values(this.KEYS).reduce((total, k) => {
-      return total + (localStorage.getItem(k)?.length || 0);
-    }, 0);
     return {
       users: Object.keys(PSYCHE.users).length,
       currentUser: PSYCHE.currentUser?.username || null,
-      storageSizeKB: (used / 1024).toFixed(1),
+      loggedIn: Auth.isLoggedIn(),
     };
   }
 };
